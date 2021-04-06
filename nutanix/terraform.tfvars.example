@@ -2,7 +2,7 @@
 qemu_uri = "qemu:///system"
 
 # Use already existing network
-#network_name = "my-network"
+#network_uuid = "my-network"
 # Due to some internal limitations, the iprange of the existing network must be defined
 # The iprange must be defined for already existing network and to create a new one
 iprange = "192.168.XXX.Y/24"
@@ -10,7 +10,7 @@ iprange = "192.168.XXX.Y/24"
 # Base image configuration. This images will be used for all deployed machines unless the specific image is defined
 # The source image has preference over the `volume_name` parameter
 #source_image = "url-to-your-sles4sap-image"
-# Use an already existing image. The image must be in the same storage pool defined in `storage_pool` parameter
+# Use an already existing image. The image must be in the same storage pool defined in `storage_container_uuid` parameter
 # This option is way faster as the image must not be downloaded
 #volume_name = "SLES4SAP-15_SP1"
 
@@ -150,7 +150,7 @@ ha_sap_deployment_repo = ""
 
 # libvirt storage pool, select the libvirt storage pool where the volume will stored
 
-# storage_pool = "terraform"
+# storage_container_uuid = "terraform"
 
 # QA variables
 

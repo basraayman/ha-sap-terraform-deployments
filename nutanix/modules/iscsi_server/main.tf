@@ -7,13 +7,13 @@ resource "libvirt_volume" "iscsi_image_disk" {
   name             = format("%s-iscsi-disk-%s", terraform.workspace, count.index + 1)
   source           = var.source_image
   base_volume_name = var.volume_name
-  pool             = var.storage_pool
+  pool             = var.storage_container_uuid
 }
 
 resource "libvirt_volume" "iscsi_dev_disk" {
   count = var.iscsi_count
   name  = format("%s-iscsi-dev-%s", terraform.workspace, count.index + 1)
-  pool  = var.storage_pool
+  pool  = var.storage_container_uuid
   size  = var.iscsi_disk_size
 }
 
@@ -38,14 +38,14 @@ resource "libvirt_domain" "iscsisrv" {
   }
 
   network_interface {
-    network_name   = var.nat_network_name
+    network_uuid   = var.nat_network_uuid
     bridge         = var.bridge
     mac            = var.mac
     wait_for_lease = true
   }
 
   network_interface {
-    network_name = var.isolated_network_name
+    network_uuid = var.isolated_network_uuid
     network_id   = var.isolated_network_id
     mac          = var.mac
     addresses    = [element(var.host_ips, count.index)]

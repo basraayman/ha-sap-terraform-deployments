@@ -7,7 +7,7 @@ resource "libvirt_volume" "monitoring_image_disk" {
   name             = format("%s-monitoring-disk", terraform.workspace)
   source           = var.source_image
   base_volume_name = var.volume_name
-  pool             = var.storage_pool
+  pool             = var.storage_container_uuid
 }
 
 resource "libvirt_domain" "monitoring_domain" {
@@ -23,14 +23,14 @@ resource "libvirt_domain" "monitoring_domain" {
 
   network_interface {
     wait_for_lease = true
-    network_name   = var.network_name
+    network_uuid   = var.network_uuid
     bridge         = var.bridge
     mac            = var.mac
   }
 
   network_interface {
     wait_for_lease = false
-    network_name   = var.isolated_network_name
+    network_uuid   = var.isolated_network_uuid
     network_id     = var.isolated_network_id
     addresses      = [var.monitoring_srv_ip]
   }

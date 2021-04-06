@@ -23,7 +23,7 @@ variable "network_domain" {
   default     = "tf.local"
 }
 
-variable "network_name" {
+variable "network_uuid" {
   description = "libvirt NAT network name for VMs, use empty string for bridged networking"
   default     = ""
 }
@@ -83,12 +83,12 @@ variable "isolated_network_id" {
   type        = string
 }
 
-variable "isolated_network_name" {
+variable "isolated_network_uuid" {
   description = "Network name to attach the isolated network interface"
   type        = string
 }
 
-variable "storage_pool" {
+variable "storage_container_uuid" {
   description = "libvirt storage pool name for VM disks"
   default     = "default"
 }

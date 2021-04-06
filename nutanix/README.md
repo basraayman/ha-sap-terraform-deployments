@@ -15,10 +15,10 @@
 # Requirements
 
 1. You need to have Terraform and the the Nutanix provider for Terraform. You may download packages from the
-   [openSUSE Build Service](http://download.opensuse.org/repositories/systemsmanagement:/terraform/) or
-   [build from source](https://github.com/dmacvicar/terraform-provider-libvirt)
+   [Terraform Provider Registry](https://registry.terraform.io/providers/nutanix/nutanix/latest) or
+   [build from source](https://github.com/nutanix/terraform-provider-nutanix)
 
-   You will need to have a working libvirt/kvm setup for using the libvirt-provider. (refer to upstream doc of [libvirt provider](https://github.com/dmacvicar/terraform-provider-libvirt))
+   You will need to have a working Nutanix AHV setup as well as Prism Central deployed to use the Nutanix provider. 
 
 2. You need to fulfill the system requirements provided by SAP for each Application. At least 15 GB of free disk space and 512 MiB of free memory per node.
 
@@ -81,8 +81,8 @@ retrieve the QEMU URI Virsh is currently connected to by running the command
 #### Checking networks
 
 You can run `virsh net-list --all` to list all defined Libvirt networks. You can
-delete undesired ones by executing `virsh net-undefine <network_name>`, where
-`<network_name>` is the name of the network you like to delete.
+delete undesired ones by executing `virsh net-undefine <network_uuid>`, where
+`<network_uuid>` is the name of the network you like to delete.
 
 #### Checking domains
 
