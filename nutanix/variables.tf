@@ -1,25 +1,21 @@
 #
-# Libvirt related variables
+# Nutanix related variables
 #
-variable "qemu_uri" {
-  description = "URI to connect with the qemu-service."
-  default     = "qemu:///system"
-}
 
-variable "storage_pool" {
-  description = "libvirt storage pool name for VM disks"
+variable "storage_container_uuid" {
+  description = "Nutanix storage container UUID for VM disks"
   type        = string
   default     = "default"
 }
 
-variable "network_name" {
-  description = "Already existing virtual network name. If it's not provided a new one will be created"
+variable "network_uuid" {
+  description = "Already existing virtual network UUID. "
   type        = string
   default     = ""
 }
 
 variable "iprange" {
-  description = "IP range of the isolated network (it must be provided even when the network_name is given, due to terraform-libvirt-provider limitations we cannot get the current network data)"
+  description = "IP range of the isolated network (it must be provided even when the network_uuid is given, due to terraform-libvirt-provider limitations we cannot get the current network data)"
   type        = string
 }
 
