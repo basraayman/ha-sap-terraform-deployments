@@ -80,9 +80,7 @@ retrieve the QEMU URI Virsh is currently connected to by running the command
 
 #### Checking networks
 
-You can run `virsh net-list --all` to list all defined Libvirt networks. You can
-delete undesired ones by executing `virsh net-undefine <network_uuid>`, where
-`<network_uuid>` is the name of the network you like to delete.
+You can run `acli net.list` to list all defined networks. 
 
 #### Checking domains
 
